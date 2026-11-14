@@ -1,32 +1,23 @@
-# Submission — bài cá nhân
+# Nội dung bài nộp
 
-## Repo bài nộp
+Bài làm của Đinh Phúc Diên, MSSV **2A202603876**, lớp **L3B**. Báo cáo chính nằm tại [report/individual/2A202603876_DinhPhucDien.md](report/individual/2A202603876_DinhPhucDien.md).
 
-Fork repo đề bài hoặc clone rồi đẩy lên repo cá nhân. Đặt tên gợi ý `K5-L3A-DAY06-MSSV-DataIngestion` hoặc `K5-L3B-DAY06-MSSV-DataIngestion`; theo hướng dẫn lớp nếu có quy ước khác. Điền [STUDENT.md](STUDENT.md) và nộp link repo theo kênh giảng viên/coach chỉ định. Thời hạn do giảng viên/coach thông báo.
+## Đối chiếu yêu cầu
 
-## Cấu trúc tối thiểu
+| Yêu cầu | Nội dung bài làm | Tài liệu |
+|---|---|---|
+| Tối thiểu 30 trang nội dung hợp lệ | 39 trang PDF, 119.228 ký tự; chương 1 có 19 trang, chương 2 có 20 trang | [Manifest](data/manifest.json), [giấy phép và chọn trang](data/README.md) |
+| Tối thiểu 20 câu hỏi, chia dev/test | 15 câu dev, 5 câu test; 4 câu có phạm vi lọc | [Benchmark](benchmark/README.md) |
+| Embedding thật và vector store | MiniLM đa ngữ, 384 chiều; PostgreSQL 16.16 và pgvector 0.7.4 trong thí nghiệm | [Cấu hình](starter/config/pipeline.json), [phiên bản](artifacts/environment.json) |
+| Ba cấu hình có so sánh kiểm soát | A thay quy tắc chia đoạn; B/C dùng chung index và chỉ khác bộ lọc | [Nhật ký thí nghiệm](artifacts/experiment_log.csv) |
+| Kết quả dev/test và top-3 | 60 trường hợp câu hỏi/cấu hình, có nội dung đoạn, điểm và metadata | [Tổng hợp kết quả](results/benchmark-summary.json) |
+| Năm khía cạnh đánh giá | Hit@1/Hit@3; 30 phiếu coherence; 45 bản ghi metadata; 15 phiếu grounding; phân tích tài nguyên và đánh đổi | [Báo cáo](report/individual/2A202603876_DinhPhucDien.md) |
+| Khả năng tái lập | Python 3.12; cài bằng venv hoặc Conda; có lệnh lấy dữ liệu, ingest, đánh giá và kiểm thử | [Cài đặt](docs/INSTALLATION.md) |
 
-```text
-STUDENT.md
-README.md                         # cách setup, chạy, đường dẫn dữ liệu
-src/ hoặc starter/src/             # code pipeline do học viên viết
-data/manifest.*                   # nguồn, trang, quyền, cách lấy
-benchmark/                        # câu hỏi, split, gold evidence
-artifacts/experiment_log.csv      # cấu hình và giả thuyết A/B/C
-results/                          # thống kê, trace, nhãn audit, log
-report/individual/<MSSV>_<HoTen>.md
-```
+## Thành phần lưu trong repository
 
-Mẫu báo cáo: [report/individual/MSSV_HoTen.md](report/individual/MSSV_HoTen.md). `src/` có thể đặt ở root hoặc `starter/src/`; benchmark và dữ liệu thật do học viên tạo. Nếu không được phép nộp dữ liệu gốc hoặc trace chứa nội dung bị hạn chế, cung cấp hướng dẫn truy cập/tái tạo và minh chứng được phép chia sẻ; báo cho người chấm biết cách xác minh.
+`starter/` chứa mã nguồn, cấu hình và kiểm thử. `data/` lưu văn bản chuẩn hóa, manifest, metadata nguồn và attribution. `benchmark/` lưu câu hỏi, đáp án, evidence và checksum. `results/` lưu chỉ số, kết quả truy xuất, đánh giá nội dung và bằng chứng kiểm tra. `artifacts/` lưu phiên bản thư viện và nhật ký thí nghiệm.
 
-## Checklist
+Môi trường Python, cache model, binary và dữ liệu PostgreSQL không nằm trong bộ bài nộp. PDF gốc được tải lại theo URL và checksum trong khai báo nguồn; corpus văn bản và trích đoạn được ghi nguồn theo CC BY 3.0 IGO. Cấu hình kết nối thực được lưu trong `.env`, không đưa vào Git.
 
-- [ ] Dữ liệu ≥30 trang nội dung hợp lệ, manifest ghi nguồn, quyền, số trang và quy tắc tính.
-- [ ] ≥20 câu theo [BENCHMARK.md](BENCHMARK.md), có evidence đã kiểm chứng và tách tối thiểu 15 dev / 5 test trước thử nghiệm.
-- [ ] Có embedding model thật và vector store hỗ trợ lưu bền vững, vector search, metadata filter; ghi phiên bản và cấu hình.
-- [ ] Có ba cấu hình, một so sánh thay đúng một yếu tố; cùng model, corpus và benchmark.
-- [ ] Chạy đủ và lưu trace top-3, chỉ số dev/test; ghi chi phí, model và thời gian.
-- [ ] Có audit thủ công và phân tích cả 5 khía cạnh theo GUIDE; ghi giới hạn.
-- [ ] Có lệnh chạy, code, manifest, experiment log và báo cáo cá nhân.
-- [ ] Không có secret, dữ liệu riêng tư hoặc dữ liệu không được phép chia sẻ.
-- [ ] Repo mở được cho người chấm và đã nộp link theo hướng dẫn lớp.
+Repository: [K5-L3B-Day06-2A202603876-DataIngestionEngineering](https://github.com/dinhphucdien179/K5-L3B-Day06-2A202603876-DataIngestionEngineering). Nộp đường dẫn repository qua kênh do giảng viên quy định.

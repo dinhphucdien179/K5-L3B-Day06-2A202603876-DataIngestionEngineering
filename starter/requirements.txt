@@ -1,4 +1,8 @@
-# Core setup and PDF parsing. Choose and install an embedding SDK separately.
+# Python 3.12. Install the embedding dependencies separately for the full pipeline.
 psycopg[binary]==3.3.8
-pypdf>=5,<7
-python-dotenv>=1,<2
+pypdf==6.21.4
+python-dotenv==1.2.4
+requests==2.34.2
+numpy==2.5.4
+pgvector==0.4.2
+lxml==6.1.3

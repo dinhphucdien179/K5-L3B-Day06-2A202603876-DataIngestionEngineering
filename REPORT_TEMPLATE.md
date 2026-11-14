@@ -1,27 +1,11 @@
-# Báo cáo cá nhân — Day 6
+# Bố cục báo cáo cá nhân
 
-## Dữ liệu và pipeline
-- Chủ đề, nguồn/quyền, số trang và quy tắc tính trang:
-- Chuẩn hóa, lỗi và giới hạn:
-- Embedding model/provider/version/số chiều, vector store/version, metric, lệnh chạy và chi phí:
-- Metadata bắt buộc, trường lọc bổ sung, nguồn giá trị và lý do chọn:
+[Báo cáo của bài làm](report/individual/2A202603876_DinhPhucDien.md) được tổ chức theo các nội dung sau:
 
-## Cấu hình và benchmark
-- A / B / C (tham số cụ thể, khác biệt duy nhất B–C):
-- ≥20 câu: phân chia ≥15 dev / ≥5 test, câu metadata filter và cách kiểm chứng evidence:
-- Tiêu chí chọn chiến lược đã chốt trước khi xem test:
+1. **Dữ liệu và pipeline:** nguồn, giấy phép, số trang, chuẩn hóa, embedding, vector store và metadata.
+2. **Thiết kế thí nghiệm:** tham số A/B/C, cách chia dev/test, evidence, bộ lọc và tiêu chí chọn cấu hình.
+3. **Kết quả:** Hit@1, Evidence Hit@3, số đoạn, thời gian, chi phí; coherence, metadata, mức tuân thủ filter và grounding.
+4. **Phân tích:** so sánh A–B và B–C, ví dụ lỗi có ID câu hỏi và nguồn, tài nguyên, đánh đổi và lựa chọn cấu hình.
+5. **Giới hạn và hướng cải thiện:** giới hạn dữ liệu, phương pháp đánh giá, cỡ mẫu và khả năng áp dụng.
 
-## Kết quả
-| Strategy | Split | Hit@1 (n/N) | Evidence Hit@3 (n/N) | Chunk count | Thời gian | Chi phí |
-|---|---|---|---|---|---|---|
-
-| Strategy | Coherence trung bình /2 (n) | Metadata đủ và đúng (n/N) | Filter tuân thủ (n/N hoặc N/A) | Grounding 0/1/2 (số câu) và trung bình /2 |
-|---|---|---|---|---|
-
-Đường dẫn trace, nhãn thủ công và cách chọn mẫu:
-
-## Phân tích và kết luận
-- So sánh A–B và B–C; 2 ví dụ sai có ID câu và nguồn:
-- Chiến lược chọn, đánh đổi, điều kiện áp dụng:
-- Hạn chế của dữ liệu, nhãn, test nhỏ, đo thời gian/chi phí:
-- Nếu làm lại hoặc mở rộng, cải tiến gì?
+Số liệu cần dẫn tới kết quả đã chạy. Tên model, phiên bản, lệnh chạy và cách lấy dữ liệu được trình bày trong báo cáo và tài liệu cài đặt.

@@ -15,5 +15,24 @@ services:
       interval: 3s
       timeout: 3s
       retries: 30
+  pipeline:
+    profiles: ["tools"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: postgresql://day6:day6_local_only@postgres:5432/day6_lab
+      DAY6_TEST_DATABASE_URL: postgresql://day6:day6_local_only@postgres:5432/day6_test
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - .:/workspace/starter
+      - ../data:/workspace/data
+      - ../benchmark:/workspace/benchmark
+      - ../results:/workspace/results
+      - ../artifacts:/workspace/artifacts
+      - ../.cache:/workspace/.cache
+      - ../pytest.ini:/workspace/pytest.ini:ro
 volumes:
   pg_data:
